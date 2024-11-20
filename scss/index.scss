@@ -1,0 +1,795 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+
+    --primary: #641957;
+    --secondary: #CE4AB7;
+    --accent: #FFB929;
+    --white: #FAF1F8;
+
+    // 20px 80px 100px 1140px
+    --body-spacing: 20px;
+    // @spacing: vectical space in the section
+    --section-spacing: 100px;
+
+
+    --border-primary: 1px solid var(--primary);
+    --border-secondary: 1px solid var(--secondary);
+
+    --border-radius: 5px;
+
+    --rounded-sm: 5px;
+    --rounded-lg: 100px;
+
+}
+
+body {
+    font: 16px/30px "Poppins", Arial;
+    word-spacing: 3px;
+    letter-spacing: 0.3px;
+    font-size: 15px;
+    color: var(--primary-color);
+    background: var(--white);
+}
+
+// horizontal and vertical 
+section{
+    padding: var(--section-spacing) var(--body-spacing);
+}
+
+
+h1, h2, h3{
+    font-family: "unbounded";
+    font-weight: bold;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1{
+    font: 30px/40px "unbounded", Arial;
+    margin-bottom: 30px;
+}
+
+
+h2{
+    font: 30px "unbounded", Arial;  
+}
+
+h2.lg{
+    font-size: 40px;
+    line-height: 40px;
+}
+
+
+ul{
+    list-style: none;
+}
+
+
+.btn, .iconBtn{
+    border: none;
+}
+
+a{
+    text-decoration: none;
+    color: var(--white);
+}
+
+
+a.btn {
+    display: block;
+    text-decoration: none;
+    width: 180px;
+    height: 40px;
+    border-radius: var(--rounded-lg);
+    background: var(--accent);
+    color: var(--primary);
+    font-family: "Poppins";
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    span{
+        position: relative;
+        top: 5px;
+        left: 30%;
+    }
+
+}
+
+.iconBtn{
+    width: auto ;
+    height: auto;
+    background: none;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(1, minmax(100px, 600px));
+    justify-content: center;
+    gap: 50px;
+}
+
+.flex{
+    display: flex;
+}
+
+// seondary color scheme
+.secondary{
+    background: var(--primary);
+    color: var(--white);
+
+    h2{
+        color: var(--white);
+    }
+
+}
+
+// icons
+i{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    min-width: 30px;
+    min-height: 20px;
+
+    &.arrow{
+        background-image: url("/assets/icons/arrow.svg");
+    }
+
+    &.navMenu{
+        background-image: url("/assets/icons/nav\ menu.svg");
+    }
+
+
+}
+
+h1{
+
+    position: relative;
+    z-index: -1;
+    // .spiral{
+    //     width: 100px;
+    //     height: 100px;
+    //     position: absolute;
+    //     top: -35%;
+    //     left: 50%;
+    //     transform: translateX(-150%);
+
+    //     z-index: -1;
+    // }
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+
+input, textarea{
+    border: none;
+    width: 100%;
+    padding: 20px;
+    font-family: "Poppins";
+    outline: none;
+    border-radius: var(--rounded-sm);
+    background: var(--white);
+}
+
+input{
+    height: 40px;
+}
+
+
+form{
+    max-width: 500px;
+    padding: 20px 10px;
+
+
+    > .btn{
+        width: 100%;
+    }
+
+    input{
+        margin-bottom: 20px;
+    }
+    > label{
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+
+}
+
+.VLine{
+    // center the line
+    display: inline-block;
+    width: 1px;
+    height: 100px;
+    background: var(--primary);
+}
+.HLine{
+    min-width: 100px;
+    height: 3px;
+    background: var(--secondary);
+}
+
+// @element: <button class=openNavMenu></button>
+.openNavMenu{
+    cursor: pointer;
+    z-index: 101;
+}
+
+.hide{
+    display: none;
+}
+
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    margin-top: 50px;
+    // margin-bottom: 100px;
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    li{
+        border-bottom: var(--border-primary);
+        border-width: 1px;
+        width: 100%;
+    }
+    // space between each list item (navigation links)
+    > li:not(:last-child){
+        margin-right: 20px;
+    }
+
+}
+
+
+#navBar {
+    display: flex;
+    justify-content: space-between;
+
+    // spaceing on top and bottom
+    padding: 20px var(--body-spacing) 10px var(--body-spacing);
+    // spacing on sides
+    // margin: 0 var(--body-spacing);
+
+    position: fixed;    
+    z-index: 1;
+    width: 100%;
+
+    border-bottom: var(--border-secondary);
+
+    background: var(--white);
+    
+}
+
+.menu{
+    width: 100vw;
+    height: 100vh;
+    padding: var(--body-spacing);
+    background: var(--secondary);
+    color: var(--white);
+    font-size: 30px;
+    max-width: 500px;
+    z-index: 100;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    
+    // make links clickable till the end of li
+    a{
+        display: inline-block;
+        width: 100%;
+    }
+
+    > ul{
+        flex-direction: column;
+        align-items: flex-start;    
+    }
+
+    li{
+        // @spacing between line/border and text
+        padding-bottom: 10px;
+        // @spacing between li's
+        margin-bottom: 50px;
+    }
+
+}
+
+
+#heroSection{
+
+    min-height: 800px;
+    padding:
+        150px // @spacing: body and section,
+        var(--body-spacing)
+        100px
+        var(--body-spacing);
+
+    border-bottom: var(--border-primary);
+    p{
+        text-align: left;
+        max-width: 600px;
+        margin: auto;
+    }
+    
+
+    > .intro{
+        text-align: center;
+    }
+    p{
+        z-index: -10;
+    }
+
+    .btn{
+        margin-top: 30px;
+        span{
+            left: 0%;
+        }
+    }
+
+}
+
+.scrollIndicator{
+    display: inline-block;
+
+    > .VLine{
+        display: block; // add on new line
+        margin: auto; // center
+    }
+}
+
+
+// our work section
+// @element: <div class=project>
+
+
+.project{
+
+    
+    > p{
+        // spacing between image and border
+        padding: 10px;
+        border-bottom: var(--border-secondary);
+        border-width: 2px;
+    }
+
+    > img{
+        border-radius: var(--rounded-sm);
+        vertical-align: middle;
+    }
+}
+
+
+// about us section
+#aboutUs{
+z-index: -1;
+
+    > .VLine{
+        height: 50px;
+        margin: 20px 0 20px 20px;
+        background: var(--secondary);
+    }
+
+    // animation final properties
+    background: var(--primary);
+    h2, h3{
+        color: var(--white);
+    }
+
+    h3{
+        font-size: 25px;
+        text-align: left;
+        margin: 30px 0 10px 0;
+        border-bottom: var(--border-secondary);
+        width: fit-content;
+        padding-bottom: 10px;
+    }
+
+    color: var(--white);
+    
+}
+
+
+#services{
+    h3{
+        text-align: left;
+    }
+
+    ul{
+        list-style: circle;
+        max-width: none;
+    }
+    li{
+        margin-left: 30px;
+    }
+
+    .card{
+        cursor: pointer;
+        h3, h4{
+            margin-bottom: 20px;
+        }
+        
+        h4{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        p:first-child{
+            margin-bottom: 50px;
+        }
+        p{
+            margin-bottom: 30px;
+        }
+
+        h5{
+            margin-bottom: 5px;
+        }
+
+        border-bottom: var(--border-secondary);
+
+        &:not(:last-child){
+            margin-bottom: 100px;
+        }
+
+        position: relative;
+    }
+
+    .iconBtn{
+        width: 35px;
+        height: 35px;
+        background: var(--secondary);
+        border-radius: 50%;
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    i{
+        vertical-align: bottom;
+        min-width: 20px;
+    }
+
+}
+
+div.swiper-wrapper{
+    width: 600px;
+    height: 250px;
+    text-align: center;
+    h3{
+        text-align: center !important;
+    }
+}
+
+// Services section
+#services ul{
+    margin: auto;
+
+
+    h3{
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    h4{
+        margin-bottom: 20px;
+    }
+
+}
+
+// @element: <div class=slider>
+.slider{
+
+    // @component: service
+    li{
+     border-bottom: var(--border-secondary);   
+     padding-bottom: 10px;
+     line-height: 25px;
+    }
+
+    // spacing between each service(li)
+    li:not(li:last-child){
+        margin-bottom: 60px;
+    }
+
+    i{
+        display: block;
+        // background: var(--primary);
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    li.transperent{
+        opacity: 0.8;
+        // decrease font size and icon width instead of transform scale
+    }
+        
+}
+
+.sliderIndicator{
+    display: block;
+    width: 80px;
+    text-align: center;
+    padding: 5px 20px;
+    border: 2px solid var(--accent);
+    border-radius: var(--rounded-lg);
+    // @spacing: li(service) - this & auto to center
+    margin: 20px auto 0 auto;
+
+}
+
+
+
+// Our clients
+#ourClients{
+
+    img{
+        width: 150px;
+    }
+
+    h3{
+        font: 14px "Poppins", Arial;
+        margin-bottom: 10px;
+        text-align: left;
+
+    }
+
+    p{
+        font: 18px "poppins", Arial;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+
+
+}
+
+.slide{
+    // max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-pagination{
+    // position: static;
+    // bottom: ;
+}
+
+// contact us
+#contactUs{
+
+    align-items: center;
+    > h2.lg{
+        text-align: left;
+        // max-width: 250px;
+    }
+
+    .HLine{
+        // place the line along with the text
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+    }
+
+    span.flex{
+        align-items: center;
+        gap: 20px;
+    }
+
+    p{
+        text-align: center;
+        margin-top: 20px ;
+    }
+
+    form{
+        margin: auto;
+        border-radius: var(--rounded-sm);
+        background: var(--primary);
+    }
+    .btn{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#footer{
+
+    background: var(--primary);
+    color: var(--white);
+    padding: 50px var(--body-spacing) 20px var(--body-spacing);
+    text-align: center;
+
+    h2{
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .flex{
+        flex-direction: column;
+        gap: 50px;
+        margin-bottom: 50px;
+    }
+
+    li:not(li:last-child){
+        margin-bottom: 10px;
+    }
+    ul{
+        
+    }
+}
+.copyright{
+    font-size: 14px;
+}
+
+
+// @breakpoints: 1140px 1280px 1121px 740px 450px > mobile
+
+@media screen and (min-width: 450px){
+    :root{
+        --body-spacing: 40px
+    }
+    form{
+        padding: 20px;
+    }
+
+    #ourClients{
+
+        img{
+            width: 200px;
+        }
+    }
+
+}
+@media screen and (min-width: 508px){
+    h1{
+        .spiral{
+            top: -80%;
+            left: 50%;
+            transform: translateX(-250%);    
+        }
+    }
+}
+
+@media screen and (min-width: 740px){
+    :root{
+        --body-spacing: 80px;
+    }
+    // remove the menu button
+    .openNavMenu{
+        display: none;
+    }
+    .menu{
+
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+
+        color: var(--primary);
+        background: none;
+
+        // @todo: unncecssary maxwidth on both menu and ul
+        max-width: none;
+
+        // make the menu visible
+        display: block;
+
+        flex-direction: row;
+        font: inherit;
+        margin-top: 0;
+
+        > ul{
+            flex-direction: row;
+            gap: 20px;
+            max-width: 100%;
+        }
+        li{
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border: none;
+            width: auto;
+        }
+    }
+    .navLinks{
+        margin-top: 0px;
+    }
+
+
+    #heroSection{
+        padding-top: 150px;   
+    }
+
+    .project{
+        position: relative;
+        p{
+            position: absolute;
+            bottom: 20px;
+            right: -20px;
+            min-width: 400px;
+            // add gradient from bottom to top
+        }
+    }
+
+    #contactUs{
+        h2{
+            margin-top: 50px;
+        }
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        // form{
+        //     padding: 20px;
+        // }
+    }
+
+    #footer{
+        // apply text-align to flex not footer
+        // h2{ text-align: left; }
+
+        > .flex{
+            // text-align: left;
+            flex-direction: row;
+            gap: 50px;
+            justify-content: center;
+
+        }
+        
+    }
+
+}
+
+
+@media screen and (min-width: 900px){
+    #contactUs{
+        gap: 100px;
+    }
+    #ourClients .flex{
+        gap: 100px;
+    }
+    #footer > .flex{
+        gap: 150px;
+    }
+}
+
+@media screen and (min-width: 1121px){
+    .grid{
+        grid-template-columns: repeat(2, minmax(400px, 500px));
+    }
+
+}
+
+@media screen and (min-width: 1280px){
+    :root{
+        --body-spacing: 100px;
+    }
+    
+}
+
+
+// larger screens
+@media screen and (min-width: 1440px){
+    :root{
+        --body-spacing: 150px;
+    }
+    .grid{
+        grid-template-columns: repeat(2, minmax(100px, 700px));
+    }
+
+}
+// larger screens
+@media screen and (min-width: 2100px){
+    :root{
+        --body-spacing: 300px;
+    }
+}
